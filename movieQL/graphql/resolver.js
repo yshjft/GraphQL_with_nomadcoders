@@ -19,7 +19,7 @@ import {getMovies} from "./db"
 
 const resolver = {
     Query: {
-        movies : () => getMovies()
+        movies : (_, {rating, limit}) => getMovies(limit, rating)
     }
 }
 
