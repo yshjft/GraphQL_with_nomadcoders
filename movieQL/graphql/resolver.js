@@ -15,11 +15,13 @@
 //         deleteMovie: (_, {id}) => deleteMovie(id)
 //     }
 // } 
-import {getMovies} from "./db"
+import {getMovies, getMovie, getSuggestions} from "./db"
 
 const resolver = {
     Query: {
-        movies : (_, {rating, limit}) => getMovies(limit, rating)
+        movies : (_, {rating, limit}) => getMovies(limit, rating),
+        movie: (_ , {id}) => getMovie(id),
+        suggestions: (_, {id}) => getSuggestions(id)
     }
 }
 
